@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-observability-prometheus-grafana
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-observability-prometheus-grafana
+  template:
+    metadata:
+      labels:
+        app: k8s-observability-prometheus-grafana
+    spec:
+      containers:
+      - name: k8s-observability-prometheus-grafana
+        image: k8s-observability-prometheus-grafana:latest
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "200m"
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 9696

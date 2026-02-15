@@ -1,0 +1,10 @@
+[project]
+name = "k8s-observability-prometheus-grafana"
+version = "0.1.0"
+description = "Deploying a minimal FastAPI application on Minikube, setting up Prometheus for metrics collection, and visualizing data on Grafana"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.129.0",
+    "uvicorn>=0.40.0",
+]
