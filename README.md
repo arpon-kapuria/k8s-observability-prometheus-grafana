@@ -1,5 +1,5 @@
-# **Observability/Monitoring with Prometheus-Grafana**  
-🚀 A complete guide on deploying a FastAPI application on Minikube, setting up Prometheus for metrics collection, and visualizing data on Grafana. The goal is to build a clean local observability stack using Kubernetes and Helm.
+# **Observability with Prometheus-Grafana**  
+A complete guide on deploying a FastAPI application on Minikube, setting up Prometheus for metrics collection, and visualizing data on Grafana. The goal is to build a clean local observability stack using Kubernetes and Helm.
 
 📘 For detailed instructions, refer to this guide: [Project-Flow](./project-flow.md)
 
