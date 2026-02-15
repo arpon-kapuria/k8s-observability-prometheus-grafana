@@ -172,12 +172,12 @@ helm install prometheus prometheus-community/prometheus --namespace monitoring -
 #### 7. Configuring Prometheus to Scrape FastAPI Metrics  
 
 ```yaml  
-# Retrieve FastAPI App Service IP: 
+# Retrieve FastAPI App Service IP
 kubectl get svc  
 
 # Note the ClusterIP and port for `k8s-observability-prometheus-grafana`. 
 
-# Edit Prometheus ConfigMap:
+# Edit Prometheus ConfigMap
 
 # To get the YAML editor 
 kubectl edit configmap prometheus-server -n monitoring
@@ -188,10 +188,10 @@ scrape_configs:
       static_configs:  
       - targets: ['CLUSTER-IP:PORT']  
 
-# Restart Prometheus:
+# Restart Prometheus
 kubectl rollout restart deployment prometheus-server -n monitoring  
 
-# Access the Prometheus dashboard and search for FastAPI metrics:  
+# Access the Prometheus dashboard and search for FastAPI metrics
 kubectl port-forward -n monitoring svc/prometheus-server 9090:80  
 ```
 
@@ -205,7 +205,7 @@ helm repo update
 # Install Grafana
 helm install grafana grafana/grafana -n monitoring --create-namespace  
 
-# Port-forward Grafana to your local machine:  
+# Port-forward Grafana to your local machine 
 kubectl port-forward svc/grafana -n monitoring 3000:80  
 ```
 Log in with the default credentials:  
@@ -219,16 +219,15 @@ kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-pass
 #### 9. Visualizing Metrics with Grafana Dashboards 
 
 ```bash
-# Add Prometheus as a Data Source:
+# Add Prometheus as a Data Source
 
 Navigate to: `Connections > Data Sources > Add Data Source > Prometheus`  
-
 Use Prometheus URL: `http://prometheus-server.monitoring.svc.cluster.local:80`
 
 # Upon successful integration, visualise the metrics using dashboards  
 ```
 
-**~ At this point, You have a fully working local Kubernetes observability pipeline.**
+~ At this point, You have a fully working local Kubernetes observability pipeline.
 
 
 ---
